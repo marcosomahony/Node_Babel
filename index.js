@@ -1,23 +1,28 @@
-const P = require('bluebird');
+const fs = require('fs');
 
-function suma(a, b) {
-    return new Promise ((resolve, reject) => {
-        setTimeout(() => {
-            resolve(a + b);
-        }, 20);
-    });
+/* fs.readFile('./prueba.txt', 'utf8', (err, resultado) => {
+    console.log(resultado);
+}) */
+
+const sumas = [];
+
+/* fs.readFile('./prueba.txt', 'utf8', (err, resultado) => {
+    const arr1 = resultado.split(',');
+    sumas.push(arr1);
+}); */
+
+function leerFichero(fichero) {
+    return new Promise((resolve) => {
+        fs.readFile(fichero, 'utf8', (err, resultado) => {
+            if(err){
+                return rejecct(err);
+            }
+            const arr1 = resultado.split(',');
+            resolve(resultado);
+        });
+    })
 }
 
-const array = [[2,3], [4,5]];
-const promesas = [];
-array.forEach((par) => promesas.push(suma(par[0], par[1])));
-
-console.log(promesas);
-
-P.map(promesas, (result) => result * 20)
-.then(console.log);
-
-/* Promise.all(promesas)
-.then((result) => {
-    console.log(result);
-}); */
+leerFichero('./prueba.txt',)
+.then(console.log)
+.catch(console.error);
