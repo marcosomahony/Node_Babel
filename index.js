@@ -1,13 +1,12 @@
-class Circle {
-    constructor(x, y) {
-        this.x = x;
-        this.y = y
-    }
+// leer carpetas de node module
+// de cada carpeta sacar su package.json
 
-    static pi() {
-        return Math.PI;
-    }
+const fs = require('fs');
+const util = require('util');
+const path = require('path');
+const fs_readfile = util.promisify(fs.readFile);
+const file = './node_modules/moment/package.json';
+
+function getPackageFromFolder() {
+    
 }
-
-const circle = new Circle(2, 3);
-console.log('Punto: ' + circle.x + ',' + circle.y);
