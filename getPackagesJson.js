@@ -44,7 +44,6 @@ function getPackagesJson() {
     return getListFolders()
     .then(getPackagesFromList) // le pasas la lista de carpetas de getListFolders
     .then(filterPackagesNull)
-    .then((data) => console.log(data))
 }
 
-getPackagesJson();
+module.exports = getPackagesJson;

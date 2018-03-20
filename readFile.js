@@ -2,9 +2,6 @@
 const fs = require('fs');
 const util = require('util');
 const fs_readfile = util.promisify(fs.readFile);
-const nameFolder= 'moment';
-
-
 
 function getPackageJson(nameFolder) {
     const file = `./node_modules/${nameFolder}/package.json`;
