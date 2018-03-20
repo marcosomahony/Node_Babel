@@ -1,28 +1,13 @@
-const fs = require('fs');
+class Circle {
+    constructor(x, y) {
+        this.x = x;
+        this.y = y
+    }
 
-/* fs.readFile('./prueba.txt', 'utf8', (err, resultado) => {
-    console.log(resultado);
-}) */
-
-const sumas = [];
-
-/* fs.readFile('./prueba.txt', 'utf8', (err, resultado) => {
-    const arr1 = resultado.split(',');
-    sumas.push(arr1);
-}); */
-
-function leerFichero(fichero) {
-    return new Promise((resolve) => {
-        fs.readFile(fichero, 'utf8', (err, resultado) => {
-            if(err){
-                return rejecct(err);
-            }
-            const arr1 = resultado.split(',');
-            resolve(resultado);
-        });
-    })
+    static pi() {
+        return Math.PI;
+    }
 }
 
-leerFichero('./prueba.txt',)
-.then(console.log)
-.catch(console.error);
+const circle = new Circle(2, 3);
+console.log('Punto: ' + circle.x + ',' + circle.y);
