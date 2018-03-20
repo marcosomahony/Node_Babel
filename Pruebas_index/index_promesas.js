@@ -18,6 +18,7 @@ const promesas = [];                                             // con .map
 array.forEach((par) => promesas.push(suma(par[0], par[1])));
 P.map(array, map)
 .then(console.log)
+
 function map(result) {
     return suma(result[0], result[1])
         .then((result) => {
