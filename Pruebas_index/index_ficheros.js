@@ -1,6 +1,7 @@
 const fs = require('fs');
 const P = require('bluebird');
 const util = require('util');
+
 const readFile = util.promisify(fs.readFile);
 
 /* fs.readFile('./prueba.txt', 'utf8', (err, resultado) => {
@@ -15,11 +16,11 @@ const sumas = [];
 }); */
 
 function leerFichero(fichero) {
-    return readFile(fichero, 'utf8')
+  return readFile(fichero, 'utf8')
     .then((resultado) => {
-        const arr1 = resultado.split(',');
-        return arr1;
-    })
+      const arr1 = resultado.split(',');
+      return arr1;
+    });
 }
 
 console.log(leerFichero('./prueba.txt'));

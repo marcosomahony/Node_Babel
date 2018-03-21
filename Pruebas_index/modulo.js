@@ -1,7 +1,7 @@
-function suma(a, b){ 
-    return a+b;
+function suma(a, b) {
+  return a + b;
 }
 
 module.exports = {
-    suma,   // igual que suma: suma,
-}
+  suma, // igual que suma: suma,
+};

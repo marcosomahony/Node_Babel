@@ -2,26 +2,12 @@ const db = require('../../db');
 const _ = require('lodash');
 const httpStatus = require('http-status');
 const APIError = require('../lib/apierror');
-const packageModel = require('../models/packages.model');
 
 function list(req, res, next) {
-  packageModel.list()
-    .then(res.json)
-    .catch(next);
-  /* simplificacion de:
-    .then((data) => {
-        return res.json(data);
-    })
-    .catch((error) => {
-        next(error);
-    })
-    */
+  return res.json(db);
 }
 
-function get(req, res, next) {
-  if (req.params.name) {
-    return next();
-  }
+function get(req, res) {
   return res.json(_.find(db, { name: req.params.name }));
 }
 
