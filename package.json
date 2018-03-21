@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "./node_modules/eslint/bin/eslint --ext .js"
-  },
+  }
   "author": "",
   "license": "ISC",
   "dependencies": {
@@ -19,6 +19,7 @@
     "lodash": "^4.17.5",
     "moment": "^2.21.0",
     "nodemon": "^1.17.2",
+    "pre-commit": "^1.2.2",
     "request": "^2.85.0"
   },
   "devDependencies": {
