@@ -1,7 +1,7 @@
 const httpStatus = require('http-status');
 
 class ExtendableError extends Error {
-    coonstructor(message, status){
+    constructor(message, status) {
         super(message);
         this.message = message;
         this.status = status;
