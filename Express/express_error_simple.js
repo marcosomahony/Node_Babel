@@ -18,10 +18,10 @@ app.get('/packages/:name', (req, res, next) => {
   return res.json(_.find(db, {'name': req.params.name}));                      
 });
 
-app.post('/packages', (req, res, next) => {
+app.post('/packages', (req, res) => { 
     if(!req.body.name){
-        next(e);
-    } 
+        res.status(httpStatus.BAD_REQUEST).json({error: 'No name'});
+    }
     db.push(req.body);
     return res.json(req.body);                 
 });

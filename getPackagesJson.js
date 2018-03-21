@@ -46,4 +46,5 @@ function getPackagesJson() {
     .then(filterPackagesNull)
 }
 
+getPackagesJson().then(console.log)
 module.exports = getPackagesJson;
