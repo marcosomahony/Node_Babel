@@ -1,12 +1,11 @@
 const db = require('../../db');
-const _ = require('lodash');
 const httpStatus = require('http-status');
 const APIError = require('../lib/apierror');
 const packageModel = require('../models/packages.model');
 
 function list(req, res, next) {
     packageModel.list()
-        .then(res.json)
+        .then(data => res.json(data))
         .catch(next);
     /* simplificacion de:
       .then((data) => {
@@ -22,7 +21,8 @@ function get(req, res, next) {
     if (req.params.name) {
         return next();
     }
-    return res.json(_.find(db, { name: req.params.name }));
+    return packageModel.get(req.params.name)
+    .then(data => res.json(data));
 }
 
 function create(req, res, next) {
