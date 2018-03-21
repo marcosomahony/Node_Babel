@@ -3,7 +3,7 @@ const _ = require('lodash');
 const httpStatus = require('http-status');
 const APIError = require('../lib/apierror');
 
-function list(req, res, next) {
+function list(req, res) {
   return res.json(db);
 }
 
