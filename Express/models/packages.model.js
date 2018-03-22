@@ -1,17 +1,18 @@
-const db = require('../../db.js');
-const _ = require('lodash');
+const mongoose = require('mongoose');
 
+const Package = mongoose.model('Package', {
+    name: String,
+    description: String,
+    version: String,
+    license: String,
+});
 
 function list() {
-  return new Promise((resolve) => {
-    resolve(db);
-  });
+  return Package.find({});
 }
 
 function get(name) {
-  return new Promise((resolve) => {
-    resolve(_.find(db, { name }));
-  });
+  return Package.find({ name });
 }
 
 module.exports = {
