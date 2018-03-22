@@ -28,7 +28,7 @@ router.route('/')
     .catch(next);
   });
 
-function resolvePackageAndNext(req, res, next) {
+/* function resolvePackageAndNext(req, res, next) {
   console.log('param', req.params.name);
   packagesCtrl.get(req.params.name)
     .then((data) => {
@@ -44,14 +44,14 @@ function cachedPackageAndResponse(req, res, next) {
   libCache.saveCache(req.bbcache)
     .then(() => res.json(req.bbcache))
     .catch(error => next(error));
-}
+} */
 
 router.route('/:name')
-  .get(
-    getCachePackage,
-    resolvePackageAndNext,
-    cachedPackageAndResponse,
-);
+  .get((req, res, next) => {
+    return packagesCtrl.get(req.params.name)
+    .then(res.json.bind(res))
+    .catch(next);
+  });
 
 module.exports = router;
 

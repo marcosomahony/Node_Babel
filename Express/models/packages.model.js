@@ -17,12 +17,17 @@ function get(name) {
 }
 
 function create(pkg) {
+  if (!pkg.name || !pkg.version) {
+    return new Promise((resolve, reject) => {
+      return reject(new APIError('No name or version'));
+    });
+  }
   Package.findOne({ name: pkg.name })
     .then((existsPkg) => {
-      console.log(existsPkg);
-      if (!existsPkg) {
-        return new APIError('Same name');
-      } return new Package(pkg).save();
+      if (existsPkg) {
+        throw new Error('Same name');
+      }
+      return new Package(pkg).save();
     });
 }
 
