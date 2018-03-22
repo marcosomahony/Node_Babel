@@ -17,12 +17,13 @@ function list(req, res, next) {
       */
 }
 
-function get(req, res, next) {
-    if (req.params.name) {
-        return next();
-    }
-    return packageModel.get(req.params.name)
-    .then(data => res.json(data));
+function get(name) {
+    return new Promise((Resolve, reject) => {
+        if (!name) {
+            return reject(new APIError('no params'));
+        }
+        return packageModel.get(name).then(Resolve);
+    });
 }
 
 function create(req, res, next) {

@@ -5,13 +5,15 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "./node_modules/eslint/bin/eslint --ext .js"
+    "lint": "./node_modules/eslint/bin/eslint --ext .js",
+    "debug": "cross-env MONGO_DEBUG=true node express.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "bluebird": "^3.5.1",
     "body-parser": "^1.18.2",
+    "cross-env": "^5.1.4",
     "devtools": "0.0.0",
     "eslint": "^4.19.0",
     "express": "^4.16.3",
